@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import "../css/Home.css";
+import { searchMovies, getPopularMovies } from "../services/api";
 function Home() {
-  const movies = [
-    { id: 1, title: "John Wick", release_date: "2020" },
-    { id: 2, title: "John Wick", release_date: "2020" },
-    { id: 3, title: "John Wick", release_date: "2020" },
-  ];
-  // затычка, чтобы проект работал, пока не реализовали весь функционал с useState и useEffect
-  const loading = false;
+  const [searchQuery, setSearchQuery] = useState("");
+  const [movies, setMovies] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadPopularMovies = async () => {
+      try {
+        const popularMovies = await getPopularMovies();
+
+        setMovies(popularMovies);
+      } catch (err) {
+        console.log(err);
+        setError("Не получилось загрузить фильмы");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadPopularMovies();
+  }, []);
+
   function handleSearch() {
     alert("Отправили запрос на поиск");
   }
@@ -21,8 +37,8 @@ function Home() {
           type="text"
           placeholder="Найти фильм"
           className="search-input"
-          // value={searchQuery}
-          // onChange={(e) => setSearchQuery(e.target.value)}
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
         <button type="submit" className="search-button">
           Search
