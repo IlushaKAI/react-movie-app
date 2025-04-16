@@ -3,6 +3,7 @@ import "../css/Favorites.css";
 import MovieCard from "../components/MovieCard";
 
 function Favorites() {
+  // Расскоментировать этот код, когда настроим контекст для избранных фильмов
   // const { favorites } = useMovieContext();
 
   // if (favorites.length === 0) {

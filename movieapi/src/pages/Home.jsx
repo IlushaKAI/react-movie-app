@@ -27,6 +27,8 @@ function Home() {
 
   function handleSearch() {
     alert("Отправили запрос на поиск");
+
+    // самостоятельно реализовать блок try catch finally
   }
 
   return (
