@@ -7,6 +7,7 @@ import Favorites from "./pages/Favorites";
 function App() {
   return (
     <>
+      {/* обернуть все в MovieProvider, когда настроим контекст */}
       <NavBar />
       <div className="main-content">
         <Routes>
