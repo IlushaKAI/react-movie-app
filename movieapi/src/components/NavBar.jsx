@@ -5,10 +5,10 @@ function NavBar() {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <Link to="/">Movie App</Link>
+        <Link to="react-movie-app">Movie App</Link>
       </div>
       <div className="navbar-links">
-        <Link to="/" className="nav-link">
+        <Link to="react-movie-app" className="nav-link">
           Home
         </Link>
         <Link to="/favorites" className="nav-link">

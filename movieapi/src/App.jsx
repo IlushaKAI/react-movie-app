@@ -11,7 +11,7 @@ function App() {
       <NavBar />
       <div className="main-content">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="react-movie-app" element={<Home />} />
           <Route path="favorites" element={<Favorites />} />
         </Routes>
       </div>
